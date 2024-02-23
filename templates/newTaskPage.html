@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>{{user.username}}'s task</title>
+    <link rel="stylesheet" href="../static/assets/bootstrap/css/bootstrap2.min.css">
+    <link rel="stylesheet" href="../static/assets/bootstrap/css/nt.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;display=swap">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top bg-dark navbar-custom navbar-dark">
+        <div class="container"><a class="navbar-brand" href="#">My task</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarResponsive"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{{url_for('logout')}}">Log Out</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{url_for('user_dashboard')}}">Go Back</a></li>
+                        <li class="nav-item">
+                            <div><a class="nav-link">{{user.username}}!</a></div>
+                        </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="text-center text-white masthead">
+        <div style="width:90%"class="bg-circle-1 bg-circle"></div>
+        <div class="bg-circle-2 bg-circle"></div>
+        <div class="bg-circle-3 bg-circle"></div>
+        <div class="container2">
+            <form action="{{url_for('add_task')}}" method="POST">
+                <input class="textbox2" type="text" id="task_title" name="task_title" placeholder="Enter your task title here..." required>
+                <p></p>
+                <textarea class="textbox2" name="task_data" placeholder="Enter your task here..." rows="5" required></textarea>
+                <br>
+                <input type="submit" class="submit-btn2" value="Add Task">
+            </form>
+        </div>
+    </header>
+    <script src="../static/assets/bootstrap/js/bootstrap2.min.js"></script>
+</body>
+
+</html>

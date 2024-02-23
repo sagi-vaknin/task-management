@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>{{user.username}}'s dashboard</title>
+    <link rel="stylesheet" href="../static/assets/bootstrap/css/bootstrap2.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;display=swap">
+    <style>
+        body {
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top bg-dark navbar-custom navbar-dark">
+        <div class="container"><a class="navbar-brand" href="#">My task</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarResponsive"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"></li>
+                    <li class="nav-item"><a class="nav-link" href="{{url_for('logout')}}">Log Out</a></li>
+                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#">Manage </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{{ url_for('new_task_page') }}">New task</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ url_for('manage_tasks')}}">My tasks</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ url_for('finished_tasks')}}">Old tasks</a>
+                        </div>
+                        <li class="nav-item">
+                            <div><a class="nav-link">Hello {{user.username}}!</a></div>
+                        </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="text-center text-white masthead">
+        <div class="bg-circle-1 bg-circle"></div>
+        <div class="bg-circle-2 bg-circle"></div>
+        <div class="bg-circle-3 bg-circle"></div>
+        <br><br><br><br><br>
+        <div class="btn-group" role="group">
+            <form action="{{ url_for('new_task_page') }}"><button class="btn btn-primary"  type="submit">NEW TASK</button></form>
+            <form action="{{ url_for('manage_tasks') }}"><button class="btn btn-primary" type="submit">MY TASKS</button></form>
+            <form action="{{ url_for('finished_tasks') }}"><button class="btn btn-primary" type="submit">OLD TASKS</button></form>
+        <br><br><br><br><br><br><br><br><br>
+    </div>
+    </header>
+    <script src="../static/assets/bootstrap/js/bootstrap2.min.js"></script>
+</body>
+
+</html>
